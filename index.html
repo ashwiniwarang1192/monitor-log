@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title> Log Monitoring System </title>
+        <style>
+            .logEle {
+                white-space: pre-line;
+            }
+        </style>
+    </head>>
+    <body>
+        <pre id = "log"></pre>>
+        <script>
+            const logEle = document.getElementById('log');
+            const conn = new WebSocket('ws://localhost:8080');
+            conn.onmessage = (event) =>{
+                const logFileData = event.data;
+                logEle.innerHTML += logFileData+'<br>';
+            }
+        </script>
+    </body>>
+</html> 
